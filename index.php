@@ -10,15 +10,6 @@ require_once('./controller/util.php');
 // Creating a root var to store the web site root address
 $root = 'http://localhost:8100/' . $_SERVER['SCRIPT_NAME'];
 
-// Installing database if necessary
-if (file_exists('./config/setup.php')) {
-    require_once('./config/setup.php');
-    ft_create_db();
-    rename('./config/setup.php', './config/setup_done.php');
-    header('Location: ./index.php');
-    exit();
-}
-
 // Calling a function according to user location
 if (isset($_GET['action']) && $_GET['action'] != '') {
     if ($_GET['action'] == 'gallery')
