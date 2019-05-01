@@ -2,6 +2,9 @@
 
 require_once('database.php');
 
+// Turn the public folder rights to writable
+chmod('./../public/photos', 0777);
+
 // Creates the Camagru Database
 
 global $DB_DSN_INIT, $DB_DSN, $DB_USER, $DB_PASSWORD;
