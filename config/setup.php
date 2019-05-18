@@ -10,6 +10,7 @@ chmod('./../public/photos', 0777);
 global $DB_DSN_INIT, $DB_DSN, $DB_USER, $DB_PASSWORD;
 
 // Database creation
+
 $db = new PDO($DB_DSN_INIT, $DB_USER, $DB_PASSWORD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 $db->exec('
     DROP DATABASE IF EXISTS camagru;
@@ -18,7 +19,15 @@ $db->exec('
 ');
 
 // Table creation
-$db = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+$db = new PDO(
+    $DB_DSN_INIT,
+    $DB_USER,
+    $DB_PASSWORD,
+    array(
+        PDO::ATTR_TIMEOUT => 5, // in seconds
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    )
+);
 $db->exec('
     CREATE TABLE photo (
         idPhoto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

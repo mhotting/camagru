@@ -8,7 +8,7 @@ require_once('./controller/profile.php');
 require_once('./controller/util.php');
 
 // Creating a root var to store the web site root address
-$root = 'http://localhost:8100/' . $_SERVER['SCRIPT_NAME'];
+$root = 'http://localhost:8008' . $_SERVER['SCRIPT_NAME'];
 
 // Calling a function according to user location
 if (isset($_GET['action']) && $_GET['action'] != '') {
