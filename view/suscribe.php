@@ -33,19 +33,19 @@
         <input type="hidden" name="action" value="suscribechecker"
         <tr>
             <td>Votre pseudo:</td>
-            <td><input type="text" name="pseudo" placeholder="Saisir pseudo" autofocus></td>
+            <td><input type="text" name="pseudo" placeholder="Saisir pseudo" autofocus required></td>
         </tr>
         <tr>
             <td>Votre adresse mail:</td>
-            <td><input type="mail" name="mail" placeholder="Saisir adresse email"></td>
+            <td><input type="email" name="mail" placeholder="Saisir adresse email" required></td>
         </tr>
         <tr>
             <td>Votre mot de passe:</td>
-            <td><input type="password" name="pwd" placeholder="Saisir mot de passe"></td>
+            <td><input type="password" name="pwd" placeholder="Saisir mot de passe" required></td>
         </tr>
         <tr>
             <td>Confirmez votre mot de passe:</td>
-            <td><input type="password" name="pwd_confirm" placeholder="Confirmer mot de passe"></td>
+            <td><input type="password" name="pwd_confirm" placeholder="Confirmer mot de passe" required></td>
         </tr>
         <tr>
             <td colspan="2"><button class="btn btn-primary my-2 my-sm-0" type="submit">Ok</button></td>

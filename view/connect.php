@@ -33,11 +33,11 @@
         <input type="hidden" name="action" value="connectchecker">
         <tr>
             <td>Votre pseudo:</td>
-            <td><input type="text" name="pseudo" placeholder="Saisir pseudo" autofocus></td>
+            <td><input type="text" name="pseudo" placeholder="Saisir pseudo" autofocus required></td>
         </tr>
         <tr>
             <td>Votre mot de passe:</td>
-            <td><input type="password" name="pwd" placeholder="Saisir mot de passe"></td>
+            <td><input type="password" name="pwd" placeholder="Saisir mot de passe" required></td>
         </tr>
         <tr>
             <td colspan="2"><button class="btn btn-primary my-2 my-sm-0" type="submit">Ok</button></td>

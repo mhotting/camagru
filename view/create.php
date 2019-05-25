@@ -28,8 +28,6 @@
                     <tr><td align="center">
                         <form action="./index.php" method="POST">
                             <input type="hidden" name="image" id="image-tag">
-                            <input type="hidden" name="username" value="<?= $_SESSION['username'] ?>">
-                            <input type="hidden" name="idUser" value="<?= $_SESSION['idUser'] ?>">
                             <input type="hidden" name="overlay" value="none" id="overlay_input">
                             <input type="hidden" name="action" value="createchecker">
                             <button id="saveButton" class="btn btn-primary my-2 my-sm-0" type="submit" style="visibility:hidden;">Sauvegarder</button>

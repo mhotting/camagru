@@ -129,19 +129,28 @@ function ft_display_create() {
 
 // Checks if the creation is ok, then saves the picture
 function ft_create_checker() {
+    ft_is_logged();
     // Checking for expected inputs
-    if (!isset($_POST['image']) || !isset($_POST['username']) || !isset($_POST['idUser']) || !isset($_POST['overlay'])) {
+    if (!isset($_POST['image']) || !isset($_POST['overlay'])) {
         header('Location: ./index.php?action=create&error=empty');
         exit();
     }
-    if ($_POST['image'] == '' || $_POST['username'] == '' || $_POST['idUser'] == '' || $_POST['overlay'] == '') {
+    if ($_POST['image'] == '' || $_POST['overlay'] == '') {
+        header('Location: ./index.php?action=create&error=empty');
+        exit();
+    }
+
+    // Overlay initialization
+    $overlay = './public/cliparts/' . $_POST['overlay'];
+    echo($overlay);
+    if ($_POST['overlay'] === 'none' || !file_exists($overlay)) {
         header('Location: ./index.php?action=create&error=empty');
         exit();
     }
 
     // Creating necessary variables
-    $username = $_POST['username'];
-    $idUser = $_POST['idUser'];
+    $username = $_SESSION['username'];
+    $idUser = $_SESSION['idUser'];
     $photoManager = new PhotoManager();
     $img = $_POST['image'];
     $folderPath = "./public/photos/";
@@ -161,7 +170,6 @@ function ft_create_checker() {
     
     // Creating the image superposition
     // Traitement de l'image source
-    $overlay = './public/cliparts/' . $_POST['overlay'];
     if ($_POST['overlay'] !== 'none' && file_exists($overlay)) {
         $source = imagecreatefrompng($overlay);
         $largeur_source = imagesx($source);
@@ -190,7 +198,7 @@ function ft_create_checker() {
         imagedestroy($destination);
     }
 
-    header('Location: ./index.php?action=create');
+    //header('Location: ./index.php?action=create');
 }
 
 
